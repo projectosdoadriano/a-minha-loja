@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustentabilidade — Adriano's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .header { background: var(--black); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .commitment-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0; }
+    .commitment-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;
+    }
+    .commitment-list li::before {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%; background: #4caf50;
+      flex-shrink: 0; margin-top: 0.45rem;
+    }
+    .progress-block { margin: 4rem 0; }
+    .progress-block h2 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 2rem; }
+    .progress-item { margin-bottom: 1.75rem; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .progress-bar { height: 6px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #4caf50; border-radius: 99px; transition: width 1s ease; }
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      .content-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">ADRIANO'S<br><span>CLOSET</span></a>
+      <nav class="nav">
+        <a href="index.html">Loja</a>
+        <a href="sobre-nos.html">Sobre Nós</a>
+        <a href="sustentabilidade.html">Sustentabilidade</a>
+        <a href="carreiras.html">Carreiras</a>
+        <a href="ajuda.html">Ajuda</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn-admin">Ver Loja</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header" data-deco="ECO" style="background:linear-gradient(135deg,#0a0a0a 60%,#0d2818)">
+    <div class="page-header-inner">
+      <span class="section-tag">Planeta em Primeiro</span>
+      <h1>Desporto<br>com consciência.</h1>
+      <p>Acreditamos que é possível ter equipamento de alto desempenho sem comprometer o futuro do planeta. Este é o nosso compromisso.</p>
+    </div>
+  </div>
+
+  <main class="page-body">
+
+    <!-- Intro -->
+    <div class="content-grid">
+      <div class="content-block">
+        <span class="section-tag">O Nosso Compromisso</span>
+        <h2>Menos impacto.<br>Mais desempenho.</h2>
+        <p>Desde 2022, trabalhámos para tornar cada aspecto da nossa operação mais sustentável — das embalagens aos parceiros que escolhemos, passando pelos materiais dos nossos produtos.</p>
+        <ul class="commitment-list">
+          <li>Embalagens 100% recicladas e recicláveis desde Janeiro de 2023</li>
+          <li>Parceria com marcas certificadas em práticas laborais justas</li>
+          <li>Compensação de carbono para todas as entregas nacionais</li>
+          <li>Programa de devolução e reutilização de artigos usados</li>
+          <li>Redução de 40% no plástico de uso único em relação a 2022</li>
+        </ul>
+      </div>
+      <div class="content-visual" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="1" stroke-linecap="round">
+          <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
+          <path d="M12 2C6 8 6 16 12 22"/>
+          <path d="M12 2c6 6 6 14 0 20"/>
+          <path d="M2 12h20"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Métricas de progresso -->
+    <div class="progress-block">
+      <span class="section-tag">Metas 2025</span>
+      <h2 style="margin-top:.75rem">Onde estamos<br>no nosso caminho.</h2>
+      <div class="progress-item">
+        <div class="progress-label"><span>Embalagens recicláveis</span><span>100%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label"><span>Redução de plástico</span><span>40%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label"><span>Entregas com compensação de CO₂</span><span>75%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label"><span>Fornecedores certificados</span><span>60%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <!-- Pilares -->
+    <span class="section-tag">Três Pilares</span>
+    <div class="values-grid" style="margin-top:1.5rem">
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <h3>Materiais</h3>
+        <p>Priorizamos tecidos reciclados, algodão orgânico e materiais de baixo impacto ambiental em toda a nossa selecção de produtos.</p>
+      </div>
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>Logística</h3>
+        <p>Optimizamos as rotas de entrega para reduzir emissões e compensamos o carbono de todas as expedições através de projectos de reflorestação.</p>
+      </div>
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <h3>Comunidade</h3>
+        <p>Apoiamos eventos desportivos locais e escolas com material reciclado, promovendo a actividade física e a consciência ambiental em simultâneo.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ADRIANO'S<br><em>CLOSET</em></span>
+        <p>Equipamento desportivo de alto desempenho. Feito para quem não desiste.</p>
+      </div>
+      <div class="footer-col"><h4>Loja</h4><ul><li><a href="index.html">Ver Catálogo</a></li></ul></div>
+      <div class="footer-col"><h4>Ajuda</h4><ul><li><a href="ajuda.html">Centro de Ajuda</a></li><li><a href="https://wa.me/351937112191" target="_blank">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="sobre-nos.html">Sobre Nós</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li><li><a href="carreiras.html">Carreiras</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Adriano's Closet. Todos os direitos reservados.</p>
+      <div class="footer-legal"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Cookies</a></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="wa-fab" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+</body>
+</html>

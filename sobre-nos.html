@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós — Adriano's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .header { background: var(--black); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin: 4rem 0; }
+    .team-card { background: var(--gray-50); padding: 2.5rem 2rem; text-align: center; }
+    .team-avatar {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 1.8rem; color: var(--white);
+    }
+    .team-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+    .team-role { font-size: 0.78rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em; }
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      .content-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">ADRIANO'S<br><span>CLOSET</span></a>
+      <nav class="nav">
+        <a href="index.html" data-cat="todos">Loja</a>
+        <a href="sobre-nos.html">Sobre Nós</a>
+        <a href="sustentabilidade.html">Sustentabilidade</a>
+        <a href="carreiras.html">Carreiras</a>
+        <a href="ajuda.html">Ajuda</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn-admin">Ver Loja</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero da página -->
+  <div class="page-header" data-deco="NÓS">
+    <div class="page-header-inner">
+      <span class="section-tag">A Nossa História</span>
+      <h1>Nascemos<br>para correr.</h1>
+      <p>Fundada em Corroios, Setúbal, a Adriano's Closet é mais do que uma loja — é uma comunidade de pessoas que acreditam que o desporto transforma vidas.</p>
+    </div>
+  </div>
+
+  <main class="page-body">
+
+    <!-- História -->
+    <div class="content-grid">
+      <div class="content-block">
+        <span class="section-tag">Desde 2018</span>
+        <h2>Começámos pequenos.<br>Pensámos grande.</h2>
+        <p>O Adriano começou a vender equipamento desportivo a partir de casa, movido pela paixão pelo atletismo e pela vontade de trazer produtos de qualidade a preços justos para a comunidade local.</p>
+        <p>Em poucos anos, a loja cresceu de uma ideia para uma referência no equipamento desportivo da região de Setúbal — com clientes de todo o país.</p>
+      </div>
+      <div class="content-visual" style="background:linear-gradient(135deg,#0a0a0a,#2a2a2a);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:var(--font-head);font-size:8rem;color:rgba(255,255,255,0.06);user-select:none">2018</span>
+      </div>
+    </div>
+
+    <!-- Números -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <p class="stat-num">6+</p>
+        <p class="stat-desc">Anos de actividade</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">4K+</p>
+        <p class="stat-desc">Clientes satisfeitos</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">200+</p>
+        <p class="stat-desc">Produtos em catálogo</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-num">1</p>
+        <p class="stat-desc">Paixão: o desporto</p>
+      </div>
+    </div>
+
+    <!-- Valores -->
+    <span class="section-tag">Os Nossos Valores</span>
+    <div class="values-grid" style="margin-top:1.5rem">
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h3>Qualidade Acima de Tudo</h3>
+        <p>Cada produto que colocamos em catálogo passa por critérios rigorosos de qualidade e desempenho. Não vendemos nada que não usaríamos nós próprios.</p>
+      </div>
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <h3>Comunidade Primeiro</h3>
+        <p>Crescemos com a nossa comunidade. Apoiamos atletas locais, clubes e escolas desportivas de Setúbal e arredores com preços especiais e parcerias.</p>
+      </div>
+      <div class="value-card">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Transparência Total</h3>
+        <p>Preços honestos, políticas de devolução claras e atendimento humano. Sem letras pequenas, sem surpresas. O que vês é o que recebes.</p>
+      </div>
+    </div>
+
+    <!-- Equipa -->
+    <span class="section-tag">A Equipa</span>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--black)">A</div>
+        <p class="team-name">Adriano Bastos</p>
+        <p class="team-role">Fundador &amp; CEO</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--accent)">M</div>
+        <p class="team-name">Mariana Costa</p>
+        <p class="team-role">Gestão de Produto</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:#424242">T</div>
+        <p class="team-name">Tomás Ferreira</p>
+        <p class="team-role">Atendimento ao Cliente</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ADRIANO'S<br><em>CLOSET</em></span>
+        <p>Equipamento desportivo de alto desempenho. Feito para quem não desiste.</p>
+      </div>
+      <div class="footer-col"><h4>Loja</h4><ul><li><a href="index.html">Ver Catálogo</a></li></ul></div>
+      <div class="footer-col"><h4>Ajuda</h4><ul><li><a href="ajuda.html">Centro de Ajuda</a></li><li><a href="https://wa.me/351937112191" target="_blank">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="sobre-nos.html">Sobre Nós</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li><li><a href="carreiras.html">Carreiras</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Adriano's Closet. Todos os direitos reservados.</p>
+      <div class="footer-legal"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Cookies</a></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="wa-fab" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+</body>
+</html>

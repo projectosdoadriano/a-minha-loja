@@ -68,6 +68,62 @@
     </div>
   </section>
 
+  <!-- ── WHATSAPP HERO ─────────────────────────────────────── -->
+  <section class="wa-hero">
+    <div class="wa-hero-inner">
+      <span class="hero-tag">Atendimento Personalizado</span>
+      <h2>Tens dúvidas?<br>Fala connosco<br>agora.</h2>
+      <p>A nossa equipa está disponível para te ajudar a escolher o equipamento certo para o teu próximo desafio.</p>
+      <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="btn-wa-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Enviar Mensagem
+      </a>
+    </div>
+    <div class="wa-hero-deco" aria-hidden="true">TALK</div>
+  </section>
+
+  <!-- ── MAPA ───────────────────────────────────────────────── -->
+  <section class="map-section">
+    <div class="map-info">
+      <span class="section-tag">Onde Estamos</span>
+      <h2>Visita-nos<br>em Corroios</h2>
+      <address>
+        <p>Rua Corticeiros 8</p>
+        <p>Corroios, Setúbal</p>
+        <p>Portugal</p>
+      </address>
+      <a href="https://maps.google.com/?q=Rua+Corticeiros+8,+Corroios,+Setúbal" target="_blank" rel="noopener" class="btn-secondary">
+        Abrir no Google Maps
+      </a>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://maps.google.com/maps?q=Rua+Corticeiros+8,+Corroios,+Setúbal,+Portugal&output=embed&z=16"
+        width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Localização Adriano's Closet">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ── NEWSLETTER ─────────────────────────────────────────── -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <span class="section-tag">Fica a Par</span>
+        <h2>Novidades, campanhas<br>e lançamentos em primeira mão.</h2>
+        <p>Subscreve a newsletter e recebe as melhores ofertas directamente no teu email.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm" onsubmit="subscribeNewsletter(event)">
+        <div class="newsletter-inputs">
+          <input type="text" placeholder="O teu nome" id="nlName" autocomplete="given-name">
+          <input type="email" placeholder="O teu email" id="nlEmail" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn-primary">Subscrever</button>
+        <p class="newsletter-note">Sem spam. Podes cancelar quando quiseres.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- ── CART DRAWER ────────────────────────────────────────── -->
   <div class="cart-overlay" id="cartOverlay"></div>
 
@@ -135,20 +191,20 @@
       <div class="footer-col">
         <h4>Ajuda</h4>
         <ul>
-          <li><a href="#">Tamanhos &amp; Medidas</a></li>
-          <li><a href="#">Devoluções</a></li>
-          <li><a href="#">Envios</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="ajuda.html#tamanhos">Tamanhos &amp; Medidas</a></li>
+          <li><a href="ajuda.html#devolucoes">Devoluções</a></li>
+          <li><a href="ajuda.html#envios">Envios</a></li>
+          <li><a href="ajuda.html#faq">FAQ</a></li>
+          <li><a href="https://wa.me/351937112191" target="_blank" rel="noopener">Contacto WhatsApp</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Empresa</h4>
         <ul>
-          <li><a href="#">Sobre Nós</a></li>
-          <li><a href="#">Sustentabilidade</a></li>
-          <li><a href="#">Carreiras</a></li>
+          <li><a href="sobre-nos.html">Sobre Nós</a></li>
+          <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+          <li><a href="carreiras.html">Carreiras</a></li>
           <li><a href="admin.html">Área Admin</a></li>
         </ul>
       </div>
@@ -165,9 +221,28 @@
     </div>
   </footer>
 
+  <!-- ── WHATSAPP FLOATING BTN ─────────────────────────────── -->
+  <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="wa-fab" title="Falar no WhatsApp" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
   <script src="js/db.js"></script>
   <script src="js/store.js"></script>
   <script>
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const email = document.getElementById('nlEmail').value.trim();
+      const form  = document.getElementById('newsletterForm');
+      form.innerHTML = `
+        <div class="newsletter-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div>
+            <p><strong>Obrigado!</strong></p>
+            <p>${email} foi adicionado à lista.</p>
+          </div>
+        </div>`;
+    }
+
     function handleFooterNav(e) {
       e.preventDefault();
       const cat = e.currentTarget.dataset.cat;

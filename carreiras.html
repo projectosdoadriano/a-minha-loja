@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carreiras — Adriano's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .header { background: var(--black); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .apply-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 300;
+      display: flex; align-items: center; justify-content: center; padding: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .apply-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .apply-modal {
+      background: var(--white); border-radius: 8px;
+      width: 100%; max-width: 560px; padding: 2.5rem;
+      position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+    }
+    .apply-modal h2 { font-family: var(--font-head); font-size: 2rem; margin-bottom: 0.5rem; }
+    .apply-modal p.role-name { color: var(--accent); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2rem; }
+    .perks-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin: 3rem 0; }
+    .perk { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .perk-icon { width: 36px; height: 36px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .perk-icon svg { width: 16px; height: 16px; stroke: var(--black); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .perk p:first-of-type { font-weight: 600; font-size: 0.875rem; margin-bottom: 0.15rem; }
+    .perk p:last-of-type { font-size: 0.78rem; color: var(--gray-400); }
+    @media (max-width: 768px) {
+      .perks-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">ADRIANO'S<br><span>CLOSET</span></a>
+      <nav class="nav">
+        <a href="index.html">Loja</a>
+        <a href="sobre-nos.html">Sobre Nós</a>
+        <a href="sustentabilidade.html">Sustentabilidade</a>
+        <a href="carreiras.html">Carreiras</a>
+        <a href="ajuda.html">Ajuda</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn-admin">Ver Loja</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header" data-deco="JOB">
+    <div class="page-header-inner">
+      <span class="section-tag">Junta-te à Equipa</span>
+      <h1>Trabalha<br>naquilo que<br>amas.</h1>
+      <p>Somos uma equipa pequena, apaixonada pelo desporto e com ambição de crescer. Se partilhas esses valores, queremos conhecer-te.</p>
+    </div>
+  </div>
+
+  <main class="page-body">
+
+    <!-- Benefícios -->
+    <span class="section-tag">O Que Oferecemos</span>
+    <div class="perks-grid" style="margin-top:1.5rem">
+      <div class="perk">
+        <div class="perk-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div><p>Desconto de 40% em produtos</p><p>Para todos os colaboradores, desde o primeiro dia.</p></div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><p>Horário flexível</p><p>Equilibra o trabalho com a tua vida desportiva.</p></div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg></div>
+        <div><p>Equipa acessível</p><p>Comunicação directa com a liderança, sem burocracia.</p></div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div><p>Crescimento real</p><p>Numa empresa a crescer, há espaço para evoluíres.</p></div>
+      </div>
+    </div>
+
+    <!-- Vagas -->
+    <span class="section-tag" style="margin-top:3rem;display:inline-block">Vagas em Aberto</span>
+    <div class="jobs-grid" style="margin-top:1.5rem">
+      <div class="job-card">
+        <div>
+          <p class="job-title">Gestor(a) de Redes Sociais</p>
+          <div class="job-meta">
+            <span>Corroios, Setúbal</span>
+            <span>Full-time</span>
+            <span>Presencial</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+          <span class="job-tag">Marketing</span>
+          <button class="btn-primary" style="padding:.6rem 1.25rem;font-size:.72rem" onclick="openApply('Gestor(a) de Redes Sociais')">Candidatar</button>
+        </div>
+      </div>
+      <div class="job-card">
+        <div>
+          <p class="job-title">Assistente de Armazém &amp; Expedição</p>
+          <div class="job-meta">
+            <span>Corroios, Setúbal</span>
+            <span>Full-time</span>
+            <span>Presencial</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+          <span class="job-tag">Operações</span>
+          <button class="btn-primary" style="padding:.6rem 1.25rem;font-size:.72rem" onclick="openApply('Assistente de Armazém & Expedição')">Candidatar</button>
+        </div>
+      </div>
+      <div class="job-card">
+        <div>
+          <p class="job-title">Atendimento ao Cliente (WhatsApp &amp; Email)</p>
+          <div class="job-meta">
+            <span>Remoto / Híbrido</span>
+            <span>Part-time</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+          <span class="job-tag">Suporte</span>
+          <button class="btn-primary" style="padding:.6rem 1.25rem;font-size:.72rem" onclick="openApply('Atendimento ao Cliente')">Candidatar</button>
+        </div>
+      </div>
+      <div class="job-card" style="background:var(--gray-50)">
+        <div>
+          <p class="job-title">Candidatura Espontânea</p>
+          <div class="job-meta"><span>Envia o teu CV e conta-nos o que podes trazer à equipa.</span></div>
+        </div>
+        <div style="flex-shrink:0">
+          <button class="btn-secondary" style="padding:.6rem 1.25rem;font-size:.72rem;white-space:nowrap" onclick="openApply('Candidatura Espontânea')">Enviar CV</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal de Candidatura -->
+  <div class="apply-modal-overlay" id="applyOverlay" onclick="if(event.target===this)closeApply()">
+    <div class="apply-modal">
+      <button class="modal-close" onclick="closeApply()">✕</button>
+      <h2>Candidatura</h2>
+      <p class="role-name" id="applyRole">—</p>
+      <form id="applyForm" onsubmit="submitApply(event)">
+        <div class="form-row">
+          <div class="field"><label>Nome Completo</label><input type="text" placeholder="O teu nome" required></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="email@exemplo.pt" required></div>
+        </div>
+        <div class="field"><label>Mensagem / Motivação</label><textarea rows="4" placeholder="Conta-nos um pouco sobre ti e porque queres fazer parte da equipa..."></textarea></div>
+        <div class="field"><label>Ligação ao CV <small style="font-weight:400;color:#9e9e9e">(LinkedIn, Drive, etc.)</small></label><input type="url" placeholder="https://"></div>
+        <div class="form-actions">
+          <button type="button" class="btn-ghost" onclick="closeApply()">Cancelar</button>
+          <button type="submit" class="btn-primary">Enviar Candidatura</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ADRIANO'S<br><em>CLOSET</em></span>
+        <p>Equipamento desportivo de alto desempenho. Feito para quem não desiste.</p>
+      </div>
+      <div class="footer-col"><h4>Loja</h4><ul><li><a href="index.html">Ver Catálogo</a></li></ul></div>
+      <div class="footer-col"><h4>Ajuda</h4><ul><li><a href="ajuda.html">Centro de Ajuda</a></li><li><a href="https://wa.me/351937112191" target="_blank">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="sobre-nos.html">Sobre Nós</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li><li><a href="carreiras.html">Carreiras</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Adriano's Closet. Todos os direitos reservados.</p>
+      <div class="footer-legal"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Cookies</a></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="wa-fab" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    function openApply(role) {
+      document.getElementById('applyRole').textContent = role;
+      document.getElementById('applyOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeApply() {
+      document.getElementById('applyOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function submitApply(e) {
+      e.preventDefault();
+      const modal = document.querySelector('.apply-modal');
+      modal.innerHTML = `
+        <div style="text-align:center;padding:2rem 1rem">
+          <div style="width:64px;height:64px;background:#e8f5e9;color:#2e7d32;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem">✓</div>
+          <h2 style="font-family:var(--font-head);font-size:2rem;margin-bottom:.75rem">Candidatura Enviada!</h2>
+          <p style="color:#616161;font-size:.9rem;line-height:1.7;margin-bottom:2rem">Obrigado pelo teu interesse. Vamos analisar a tua candidatura e entrar em contacto em breve.</p>
+          <button class="btn-primary" onclick="closeApply()">Fechar</button>
+        </div>`;
+    }
+  </script>
+</body>
+</html>

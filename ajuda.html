@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajuda — Adriano's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .header { background: var(--black); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .help-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .help-nav a {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.5rem 1rem; border: 1.5px solid var(--gray-200); border-radius: 99px;
+      color: var(--gray-600); transition: all 0.2s;
+    }
+    .help-nav a:hover, .help-nav a.active { border-color: var(--black); background: var(--black); color: var(--white); }
+    .help-section { margin-bottom: 4rem; scroll-margin-top: 120px; }
+    .help-section h2 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 1.5rem; }
+    .size-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .size-table th { background: var(--black); color: var(--white); padding: 0.875rem 1rem; text-align: left; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .size-table td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--gray-100); font-size: 0.875rem; }
+    .size-table tr:hover td { background: var(--gray-50); }
+    .contact-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-top: 1.5rem; }
+    .contact-card { background: var(--white); padding: 2rem; text-align: center; }
+    .contact-card svg { width: 32px; height: 32px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; margin: 0 auto 1rem; display: block; }
+    .contact-card h3 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .contact-card p { font-size: 0.82rem; color: var(--gray-400); margin-bottom: 1rem; }
+    @media (max-width: 768px) {
+      .contact-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">ADRIANO'S<br><span>CLOSET</span></a>
+      <nav class="nav">
+        <a href="index.html">Loja</a>
+        <a href="sobre-nos.html">Sobre Nós</a>
+        <a href="sustentabilidade.html">Sustentabilidade</a>
+        <a href="carreiras.html">Carreiras</a>
+        <a href="ajuda.html">Ajuda</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn-admin">Ver Loja</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header" data-deco="FAQ">
+    <div class="page-header-inner">
+      <span class="section-tag">Centro de Ajuda</span>
+      <h1>Como<br>podemos<br>ajudar?</h1>
+      <p>Encontra respostas às perguntas mais frequentes ou fala directamente connosco pelo WhatsApp.</p>
+    </div>
+  </div>
+
+  <main class="page-body">
+
+    <!-- Nav de secções -->
+    <div class="help-nav">
+      <a href="#faq" class="active">FAQ</a>
+      <a href="#envios">Envios</a>
+      <a href="#devolucoes">Devoluções</a>
+      <a href="#tamanhos">Tamanhos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="help-section" id="faq">
+      <span class="section-tag">Perguntas Frequentes</span>
+      <h2>FAQ</h2>
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Qual é o prazo de entrega?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>As encomendas são processadas em 1 dia útil. A entrega em Portugal Continental demora entre 2 a 4 dias úteis. Para as ilhas, o prazo pode ser de 5 a 8 dias úteis.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Posso alterar ou cancelar a minha encomenda?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Podes solicitar alteração ou cancelamento até 1 hora após a compra, contactando-nos pelo WhatsApp. Após esse período, a encomenda já pode estar em preparação e não será possível alterá-la.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Os produtos têm garantia?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Sim. Todos os produtos têm garantia legal de 2 anos conforme a legislação portuguesa (Decreto-Lei n.º 84/2021). Em caso de defeito de fabrico, procedemos à substituição ou reembolso sem custos adicionais.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>O pagamento é seguro?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Sim. Utilizamos Google Pay para processamento de pagamentos, com encriptação de ponta a ponta. Os teus dados bancários nunca são armazenados nos nossos servidores.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Como sei o tamanho certo para mim?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Consulta a nossa tabela de tamanhos na secção abaixo. Em caso de dúvida, recomendamos que optes pelo tamanho maior — a maioria dos nossos produtos permite a troca gratuita em 30 dias.</p></div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Fazem envios para fora de Portugal?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Actualmente fazemos envios apenas para Portugal Continental e Ilhas. Brevemente alargaremos os envios a Espanha e ao resto da Europa. Subscreve a newsletter para seres o primeiro a saber.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Envios -->
+    <div class="help-section" id="envios">
+      <span class="section-tag">Portes e Prazos</span>
+      <h2>Envios</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Quanto custam os portes de envio?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Os portes de envio são de <strong>4,99 €</strong> para encomendas até 79,99 €. A partir de <strong>80,00 €</strong> o envio é totalmente <strong>gratuito</strong>.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Qual é a transportadora utilizada?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Trabalhamos com CTT Expresso e DPD para garantir a entrega rápida e segura em todo o território nacional. Receberás um email com o número de seguimento assim que a encomenda for expedida.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Posso escolher uma data de entrega?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Não é possível escolher data específica, mas podes acompanhar a tua encomenda em tempo real através do número de seguimento fornecido por email.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Devoluções -->
+    <div class="help-section" id="devolucoes">
+      <span class="section-tag">Trocas e Reembolsos</span>
+      <h2>Devoluções</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Qual é o prazo para devolver um artigo?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Tens <strong>30 dias</strong> a partir da data de recepção para devolver qualquer artigo, sem necessidade de justificação. O produto deve estar em perfeitas condições, sem uso e com etiquetas originais.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>A devolução tem custos?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>A primeira troca de tamanho é sempre gratuita. Para devoluções com reembolso, os portes de retorno são suportados pelo cliente (excepção: defeitos de fabrico, onde os custos são nossos).</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn"><span>Em quanto tempo recebo o reembolso?</span><span class="acc-icon">+</span></button>
+          <div class="accordion-body"><p>Após recebermos e validarmos o artigo devolvido, o reembolso é processado em <strong>3 a 5 dias úteis</strong> para o método de pagamento original.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela de tamanhos -->
+    <div class="help-section" id="tamanhos">
+      <span class="section-tag">Guia de Tamanhos</span>
+      <h2>Tamanhos &amp; Medidas</h2>
+      <p style="color:var(--gray-600);margin-bottom:1rem;font-size:.9rem">Medidas em centímetros. Em caso de dúvida entre dois tamanhos, recomendamos o maior.</p>
+      <table class="size-table">
+        <thead><tr><th>Tamanho</th><th>Peito (cm)</th><th>Cintura (cm)</th><th>Quadril (cm)</th></tr></thead>
+        <tbody>
+          <tr><td>XS</td><td>82 – 86</td><td>62 – 66</td><td>88 – 92</td></tr>
+          <tr><td>S</td><td>87 – 91</td><td>67 – 71</td><td>93 – 97</td></tr>
+          <tr><td>M</td><td>92 – 96</td><td>72 – 76</td><td>98 – 102</td></tr>
+          <tr><td>L</td><td>97 – 101</td><td>77 – 81</td><td>103 – 107</td></tr>
+          <tr><td>XL</td><td>102 – 106</td><td>82 – 86</td><td>108 – 112</td></tr>
+          <tr><td>XXL</td><td>107 – 112</td><td>87 – 92</td><td>113 – 118</td></tr>
+        </tbody>
+      </table>
+      <table class="size-table" style="margin-top:2rem">
+        <thead><tr><th>EU</th><th>UK</th><th>US</th><th>cm</th></tr></thead>
+        <tbody>
+          <tr><td>38</td><td>5</td><td>6</td><td>24.0</td></tr>
+          <tr><td>39</td><td>6</td><td>7</td><td>24.7</td></tr>
+          <tr><td>40</td><td>6.5</td><td>7.5</td><td>25.4</td></tr>
+          <tr><td>41</td><td>7</td><td>8</td><td>26.0</td></tr>
+          <tr><td>42</td><td>8</td><td>9</td><td>26.7</td></tr>
+          <tr><td>43</td><td>9</td><td>10</td><td>27.3</td></tr>
+          <tr><td>44</td><td>9.5</td><td>10.5</td><td>28.0</td></tr>
+          <tr><td>45</td><td>10.5</td><td>11.5</td><td>28.6</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Contacto -->
+    <div class="help-section" id="contacto">
+      <span class="section-tag">Fala Connosco</span>
+      <h2>Contacto</h2>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <h3>WhatsApp</h3>
+          <p>Resposta em minutos durante o horário de funcionamento.</p>
+          <a href="https://wa.me/351937112191" target="_blank" class="btn-primary" style="display:inline-flex;padding:.7rem 1.5rem;font-size:.75rem">Enviar Mensagem</a>
+        </div>
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <h3>Email</h3>
+          <p>Para questões que não sejam urgentes. Respondemos em 24h.</p>
+          <a href="mailto:geral@adrianoscloset.pt" class="btn-secondary" style="display:inline-flex;padding:.7rem 1.5rem;font-size:.75rem">Enviar Email</a>
+        </div>
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <h3>Loja Física</h3>
+          <p>Rua Corticeiros 8, Corroios, Setúbal<br>Seg – Sex: 10h – 19h</p>
+          <a href="https://maps.google.com/?q=Rua+Corticeiros+8,+Corroios,+Setúbal" target="_blank" class="btn-secondary" style="display:inline-flex;padding:.7rem 1.5rem;font-size:.75rem">Ver no Mapa</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">ADRIANO'S<br><em>CLOSET</em></span>
+        <p>Equipamento desportivo de alto desempenho. Feito para quem não desiste.</p>
+      </div>
+      <div class="footer-col"><h4>Loja</h4><ul><li><a href="index.html">Ver Catálogo</a></li></ul></div>
+      <div class="footer-col"><h4>Ajuda</h4><ul><li><a href="ajuda.html">Centro de Ajuda</a></li><li><a href="https://wa.me/351937112191" target="_blank">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="sobre-nos.html">Sobre Nós</a></li><li><a href="sustentabilidade.html">Sustentabilidade</a></li><li><a href="carreiras.html">Carreiras</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Adriano's Closet. Todos os direitos reservados.</p>
+      <div class="footer-legal"><a href="#">Privacidade</a><a href="#">Termos</a><a href="#">Cookies</a></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351937112191" target="_blank" rel="noopener" class="wa-fab" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.509 5.833L.057 23.52a.75.75 0 00.917.928l5.85-1.53A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.5-5.26-1.37l-.38-.22-3.91 1.02 1.05-3.8-.25-.39A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    // Accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Highlight nav link activo ao scroll
+    const sections = document.querySelectorAll('.help-section');
+    const navLinks = document.querySelectorAll('.help-nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    });
+  </script>
+</body>
+</html>
