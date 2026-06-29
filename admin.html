@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Adriano's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+  <!-- ── ADMIN HEADER ───────────────────────────────────────── -->
+  <header class="admin-header">
+    <span class="admin-logo">ADRIANO'S <span>CLOSET</span> — ADMIN</span>
+    <div class="admin-nav">
+      <a href="index.html" class="btn-admin">Ver Loja</a>
+    </div>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────────── -->
+  <main class="admin-main">
+    <h1 class="admin-title">Painel de Administração</h1>
+    <p class="admin-subtitle">Gestão de produtos e encomendas da loja.</p>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <p class="stat-label">Produtos</p>
+        <p class="stat-value" id="statProducts">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Encomendas</p>
+        <p class="stat-value" id="statOrders">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Receita Total</p>
+        <p class="stat-value" id="statRevenue">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Stock Total</p>
+        <p class="stat-value" id="statStock">—</p>
+      </div>
+    </div>
+
+    <!-- Products table -->
+    <div class="table-section">
+      <div class="table-header">
+        <h2>Produtos</h2>
+        <div style="display:flex;gap:.75rem">
+          <button class="btn-ghost" id="btnResetDB">Repor Dados</button>
+          <button class="btn-primary" id="addProductBtn">+ Adicionar Produto</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Preço</th>
+              <th>Stock</th>
+              <th>Estado</th>
+              <th>Acções</th>
+            </tr>
+          </thead>
+          <tbody id="productsTable">
+            <!-- Preenchido por admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── PRODUCT FORM MODAL ─────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="product-form-modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 id="modalTitle">Adicionar Produto</h2>
+
+      <form id="productForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label>Nome do Produto *</label>
+            <input type="text" id="fName" placeholder="Ex: ProRun Elite" required>
+          </div>
+          <div class="field">
+            <label>Subtítulo</label>
+            <input type="text" id="fSubtitle" placeholder="Ex: Sapatilhas de Corrida">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Categoria *</label>
+            <select id="fCategory" required>
+              <option value="corrida">Corrida</option>
+              <option value="treino">Treino</option>
+              <option value="futebol">Futebol</option>
+              <option value="estilo">Estilo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Stock</label>
+            <input type="number" id="fStock" placeholder="0" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Preço (€) *</label>
+            <input type="number" id="fPrice" placeholder="99.99" step="0.01" min="0.01" required>
+          </div>
+          <div class="field">
+            <label>Preço Original (€) <small style="font-weight:400;color:#9e9e9e">opcional, para desconto</small></label>
+            <input type="number" id="fOriginalPrice" placeholder="129.99" step="0.01" min="0">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Imagem do Produto <small style="font-weight:400;color:#9e9e9e">coloca o ficheiro em assets/img/</small></label>
+          <div style="display:flex;gap:.75rem;align-items:center">
+            <input type="text" id="fImage" placeholder="assets/img/sapatilha-prorun.jpg" style="flex:1">
+            <img id="imgPreview" src="" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:4px;border:1.5px solid #e0e0e0;display:none">
+          </div>
+          <small style="color:#9e9e9e;font-size:.72rem;margin-top:.3rem">Opcional — se não houver imagem, usa o gradiente de cor abaixo.</small>
+        </div>
+
+        <div class="field">
+          <label>Fundo do Cartão (CSS gradient ou cor) <small style="font-weight:400;color:#9e9e9e">visível quando não há imagem</small></label>
+          <div style="display:flex;gap:.75rem;align-items:center">
+            <input type="text" id="fBg" placeholder="linear-gradient(135deg,#d0e8ff,#a8d0f5)" style="flex:1">
+            <div class="bg-preview" id="bgPreview"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Descrição</label>
+          <textarea id="fDescription" placeholder="Descrição detalhada do produto..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Tamanhos <small style="font-weight:400;color:#9e9e9e">separados por vírgula</small></label>
+          <input type="text" id="fSizes" placeholder="38, 39, 40, 41, 42, S, M, L, XL">
+        </div>
+
+        <div class="form-row" style="margin-top:.5rem">
+          <div class="field checkbox-field">
+            <input type="checkbox" id="fIsNew">
+            <label for="fIsNew">Marcar como Novo</label>
+          </div>
+          <div class="field checkbox-field">
+            <input type="checkbox" id="fFeatured">
+            <label for="fFeatured">Produto em Destaque</label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-ghost" id="cancelBtn">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Produto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    // Preview do gradiente
+    document.getElementById('fBg').addEventListener('input', function () {
+      document.getElementById('bgPreview').style.background = this.value;
+    });
+
+    // Preview da imagem do produto
+    document.getElementById('fImage').addEventListener('input', function () {
+      const preview = document.getElementById('imgPreview');
+      if (this.value.trim()) {
+        preview.src = this.value.trim();
+        preview.style.display = 'block';
+        preview.onerror = () => { preview.style.display = 'none'; };
+      } else {
+        preview.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
