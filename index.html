@@ -44,7 +44,8 @@
       <span class="hero-tag">Nova Coleção 2026</span>
       <h1>FEITO<br>PARA<br>VENCER</h1>
       <p>Equipamento desportivo de alto desempenho para quem não desiste.</p>
-      <button class="btn-primary" onclick="scrollToProducts()" style="margin-bottom: 1rem;">Explorar Coleção</button>
+      <button class="btn-primary" onclick="scrollToProducts()">Explorar Coleção</button>
+
     </div>
   </section>
 
@@ -157,6 +158,15 @@
     <div class="checkout-modal" id="checkoutModal"></div>
   </div>
 
+  <!-- ── LEGAL MODAL (Privacidade / Termos / Cookies) ────────── -->
+  <div class="modal-overlay" id="legalOverlay">
+    <div class="legal-modal" id="legalModal">
+      <button class="modal-close" onclick="closeLegalModal()">✕</button>
+      <h2 id="legalTitle"></h2>
+      <div class="legal-body" id="legalBody"></div>
+    </div>
+  </div>
+
   <!-- ── FOOTER ────────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer-inner">
@@ -214,9 +224,9 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Adriano's Closet. Todos os direitos reservados.</p>
       <div class="footer-legal">
-        <a href="#">Privacidade</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Cookies</a>
+        <a href="#" onclick="openLegalModal(event, 'privacidade')">Privacidade</a>
+        <a href="#" onclick="openLegalModal(event, 'termos')">Termos de Uso</a>
+        <a href="#" onclick="openLegalModal(event, 'cookies')">Cookies</a>
       </div>
     </div>
   </footer>
@@ -251,6 +261,68 @@
       renderProducts();
       document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
     }
+
+    const legalContent = {
+      privacidade: {
+        title: 'Política de Privacidade',
+        body: `
+          <p>A Adriano's Closet compromete-se a proteger a privacidade dos seus utilizadores. Esta política explica que dados recolhemos, para que fins os utilizamos e quais os teus direitos.</p>
+          <h3>Dados que recolhemos</h3>
+          <p>Recolhemos os dados que nos fornece­s ao efectuar uma compra ou subscrever a newsletter, nomeadamente nome, email, morada e contacto telefónico.</p>
+          <h3>Como usamos os dados</h3>
+          <p>Os dados são utilizados exclusivamente para processar encomendas, comunicar sobre o estado da tua compra e, caso tenhas subscrito, enviar novidades e campanhas.</p>
+          <h3>Os teus direitos</h3>
+          <p>Podes a qualquer momento pedir o acesso, correcção ou eliminação dos teus dados pessoais contactando-nos através do WhatsApp ou email.</p>
+        `
+      },
+      termos: {
+        title: 'Termos de Uso',
+        body: `
+          <p>Ao utilizar este website e efectuar compras na Adriano's Closet, aceitas os seguintes termos e condições.</p>
+          <h3>Encomendas</h3>
+          <p>Todas as encomendas estão sujeitas a confirmação de disponibilidade de stock. Reservamo-nos o direito de recusar ou cancelar qualquer encomenda.</p>
+          <h3>Preços e pagamento</h3>
+          <p>Os preços apresentados incluem IVA à taxa legal em vigor e podem ser alterados sem aviso prévio.</p>
+          <h3>Devoluções</h3>
+          <p>Consulta a nossa página de Ajuda para mais informações sobre devoluções e trocas.</p>
+        `
+      },
+      cookies: {
+        title: 'Política de Cookies',
+        body: `
+          <p>Este website utiliza cookies para melhorar a tua experiência de navegação e o funcionamento da loja online.</p>
+          <h3>O que são cookies</h3>
+          <p>Cookies são pequenos ficheiros de texto guardados no teu dispositivo que permitem ao site recordar as tuas preferências, como os artigos no carrinho.</p>
+          <h3>Tipos de cookies utilizados</h3>
+          <p>Utilizamos cookies essenciais (necessários para o funcionamento do site, como o carrinho de compras) e cookies analíticos, que nos ajudam a perceber como o site é utilizado.</p>
+          <h3>Gestão de cookies</h3>
+          <p>Podes gerir ou desactivar cookies nas definições do teu browser a qualquer momento.</p>
+        `
+      }
+    };
+
+    function openLegalModal(e, key) {
+      e.preventDefault();
+      const data = legalContent[key];
+      if (!data) return;
+      document.getElementById('legalTitle').textContent = data.title;
+      document.getElementById('legalBody').innerHTML = data.body;
+      document.getElementById('legalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLegalModal() {
+      document.getElementById('legalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('legalOverlay').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeLegalModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLegalModal();
+    });
   </script>
 </body>
 </html>

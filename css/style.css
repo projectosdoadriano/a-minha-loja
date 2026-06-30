@@ -155,6 +155,11 @@ h1, h2, h3, h4 { line-height: 1.1; }
   font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,0.5);
   max-width: 440px; margin-bottom: 2.5rem; line-height: 1.6;
 }
+.hero-content .btn-primary { margin-bottom: 1rem; }
+
+@media (min-width: 769px) {
+  .hero-content .btn-primary { margin-bottom: 4rem; }
+}
 
 /* ============================================================
    BUTTONS
@@ -425,6 +430,26 @@ h1, h2, h3, h4 { line-height: 1.1; }
 }
 .size-btn:hover { border-color: var(--black); }
 .size-btn.active { background: var(--black); color: var(--white); border-color: var(--black); }
+
+/* ── Legal Modal (Privacidade / Termos / Cookies) ─────────────────── */
+.legal-modal {
+  background: var(--white); border-radius: var(--radius-md);
+  width: 100%; max-width: 640px; max-height: 85vh; overflow-y: auto;
+  position: relative; box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+}
+.legal-modal h2 {
+  font-family: var(--font-head); font-size: 2rem; letter-spacing: 0.02em;
+  margin-bottom: 1.5rem; padding-right: 2rem;
+}
+.legal-body h3 {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gray-600); margin: 1.5rem 0 0.5rem;
+}
+.legal-body h3:first-child { margin-top: 0; }
+.legal-body p {
+  font-size: 0.9rem; line-height: 1.7; color: var(--gray-600);
+}
 
 /* ── Checkout Modal ─────────────────────────────────────────────── */
 .checkout-modal {
