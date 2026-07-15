@@ -1,0 +1,112 @@
+========================================================================
+INSTRUÇÕES FINAIS — O QUE FALTA FAZER (5 PASSOS MANUAIS)
+========================================================================
+Todo o código já está pronto e escrito. Faltam apenas ações que só podem
+ser feitas por ti, na tua conta.
+
+------------------------------------------------------------------------
+PASSO 1 — Correr o SQL no Supabase
+------------------------------------------------------------------------
+1. Vai a https://supabase.com/dashboard, projeto "aminhaloja".
+2. Menu lateral → "SQL Editor" → "New query".
+3. Abre o ficheiro supabase_setup.sql (criado nesta pasta), copia tudo,
+   cola no editor e clica "Run".
+4. Confirma em "Table Editor" que aparecem as tabelas categories,
+   products (com 12 produtos), customers, orders, order_items,
+   newsletter_subscribers, job_applications.
+
+------------------------------------------------------------------------
+PASSO 2 — Preencher a chave anon em js/config.js
+------------------------------------------------------------------------
+O ficheiro js/config.js já tem a Project URL preenchida. Falta a chave:
+1. No painel Supabase → "Project Settings" → "API".
+2. Copia o valor de "anon public" (NÃO o "service_role").
+3. Abre js/config.js e substitui 'COLA_AQUI_A_ANON_PUBLIC_KEY' por essa
+   chave, entre plicas.
+
+------------------------------------------------------------------------
+PASSO 3 — Criar o utilizador de login do admin
+------------------------------------------------------------------------
+1. Painel Supabase → "Authentication" → "Providers" → "Email" →
+   desativa "Confirm email" (para o login manual funcionar já).
+2. "Authentication" → "Users" → "Add user" → "Create new user":
+   - Email: adriano@aminhaloja.pt
+   - Password: 1234
+   - "Auto Confirm User": ativado
+3. Guarda.
+
+No site, o login usa:
+   Utilizador: adriano
+   Password:   1234
+(o "adriano@aminhaloja.pt" é interno, o utilizador nunca o vê nem escreve).
+
+Nota de segurança: troca esta password assim que tudo estiver a funcionar,
+em "Authentication" → "Users" → editar utilizador → "Reset Password".
+Não é preciso mudar nenhum código para isso.
+
+------------------------------------------------------------------------
+PASSO 4 — Testar localmente antes de publicar
+------------------------------------------------------------------------
+Como o site é só HTML/CSS/JS, basta abrir os ficheiros num servidor local
+(não abras diretamente com file:// — os módulos/CORS do Supabase exigem
+http://). Opções simples:
+   - VSCode: extensão "Live Server", botão direito em index.html → "Open
+     with Live Server".
+   - Ou no terminal, dentro da pasta do projeto:
+       npx serve .
+     e abrir o endereço que aparecer (ex: http://localhost:3000).
+
+Testa:
+   [ ] index.html mostra os 12 produtos vindos do Supabase.
+   [ ] Adicionar ao carrinho e finalizar compra cria a encomenda
+       (confirma em Table Editor → orders / order_items / customers).
+   [ ] admin.html sem login redireciona para login.html.
+   [ ] Login com adriano / 1234 funciona e abre o painel admin.
+   [ ] Criar, editar e eliminar um produto no admin funciona e reflete-se
+       na loja.
+   [ ] Botão "Sair" no admin funciona.
+
+------------------------------------------------------------------------
+PASSO 5 — Publicar no GitHub (utilizador: projectosdoadriano)
+------------------------------------------------------------------------
+Se ainda não tens o repositório criado:
+1. Vai a https://github.com/new, conta projectosdoadriano.
+2. Nome sugerido: adrianos-closet (ou o que preferires).
+3. Não inicializes com README (o projeto já existe localmente).
+
+Depois, no terminal, dentro da pasta do projeto:
+
+   git remote add origin https://github.com/projectosdoadriano/NOME-DO-REPO.git
+   git add .
+   git commit -m "Integra base de dados Supabase e login de admin"
+   git push -u origin master
+
+(Se o repositório remoto já existir e já tiveres "origin" configurado,
+salta o "git remote add" e só corres add/commit/push.)
+
+Depois de publicado no GitHub, podes alojar o site gratuitamente em
+GitHub Pages, Vercel ou Netlify — basta apontar para a pasta raiz do
+repositório (é site estático, sem build necessário).
+
+========================================================================
+FICHEIROS CRIADOS/ALTERADOS NESTA IMPLEMENTAÇÃO
+========================================================================
+Novos:
+  - supabase_setup.sql       (schema + RLS + seed, corre no PASSO 1)
+  - js/config.js              (URL + chave do Supabase)
+  - js/auth.js                (login/logout/proteção de sessão)
+  - login.html                (página de login do admin)
+  - instrucoes_finais.txt     (este ficheiro)
+
+Alterados:
+  - js/db.js       — reescrito para usar Supabase em vez de localStorage
+  - js/store.js    — funções de produtos/checkout tornadas assíncronas;
+                     newsletter agora grava em newsletter_subscribers
+  - js/admin.js    — protegido por login; CRUD assíncrono via Supabase;
+                     botão "Repor Dados" escondido (já não se aplica)
+  - admin.html     — inclui supabase-js, config.js, auth.js; botão "Sair"
+  - index.html     — inclui supabase-js, config.js
+
+========================================================================
+FIM
+========================================================================

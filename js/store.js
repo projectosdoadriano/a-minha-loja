@@ -7,7 +7,6 @@ let activeCategory = 'todos';
 
 // ── Init ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  DB.init();
   renderProducts();
   bindFilters();
   bindCart();
@@ -50,9 +49,10 @@ function bindFilters() {
 }
 
 // ── Products ─────────────────────────────────────────────────
-function renderProducts() {
+async function renderProducts() {
   const grid = document.getElementById('productsGrid');
-  let products = DB.getProducts();
+  grid.innerHTML = '<p class="empty-state">A carregar...</p>';
+  let products = await DB.getProducts();
 
   if (activeCategory !== 'todos') {
     products = products.filter(p => p.category === activeCategory);
@@ -117,8 +117,8 @@ function fmt(n) {
 }
 
 // ── Product Modal ─────────────────────────────────────────────
-function openProductModal(id) {
-  const p = DB.getProduct(id);
+async function openProductModal(id) {
+  const p = await DB.getProduct(id);
   if (!p) return;
 
   const discount = p.originalPrice
@@ -172,14 +172,14 @@ document.getElementById('productOverlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeProductModal();
 });
 
-function addFromModal(id) {
+async function addFromModal(id) {
   const size = document.querySelector('.size-btn.active')?.dataset.size;
   if (!size) {
     document.querySelector('.sizes-label').textContent = 'Por favor selecciona um tamanho';
     document.querySelector('.sizes-label').style.color = '#e5111b';
     return;
   }
-  quickAdd(id, size);
+  await quickAdd(id, size);
   closeProductModal();
 }
 
@@ -191,8 +191,8 @@ function bindCart() {
   document.getElementById('checkoutBtn').addEventListener('click', openCheckout);
 }
 
-function quickAdd(id, size = null) {
-  const p = DB.getProduct(id);
+async function quickAdd(id, size = null) {
+  const p = await DB.getProduct(id);
   if (!p) return;
 
   const key = id + (size || '');
@@ -392,23 +392,31 @@ function processPayment() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span><span>A processar...</span>';
 
-  setTimeout(() => {
+  setTimeout(async () => {
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
     const shipping = total >= 80 ? 0 : 4.99;
-    const order = DB.saveOrder({ items: [...cart], total: total + shipping, customer: { name, email, address, zip, city } });
 
-    cart = [];
-    updateCartUI();
+    try {
+      const order = await DB.saveOrder({ items: [...cart], total: total + shipping, customer: { name, email, address, zip, city } });
 
-    document.getElementById('checkoutModal').innerHTML = `
-      <div class="success-screen">
-        <div class="success-icon">✓</div>
-        <h2>Encomenda Confirmada!</h2>
-        <p>Obrigado, <strong>${name}</strong>.</p>
-        <p class="order-ref">Referência: <strong>${order.id}</strong></p>
-        <p class="success-sub">Receberás um email de confirmação em <strong>${email}</strong>.</p>
-        <button class="btn-primary" onclick="closeCheckout(); renderProducts()">Continuar a Comprar</button>
-      </div>`;
+      cart = [];
+      updateCartUI();
+
+      document.getElementById('checkoutModal').innerHTML = `
+        <div class="success-screen">
+          <div class="success-icon">✓</div>
+          <h2>Encomenda Confirmada!</h2>
+          <p>Obrigado, <strong>${name}</strong>.</p>
+          <p class="order-ref">Referência: <strong>${order.id}</strong></p>
+          <p class="success-sub">Receberás um email de confirmação em <strong>${email}</strong>.</p>
+          <button class="btn-primary" onclick="closeCheckout(); renderProducts()">Continuar a Comprar</button>
+        </div>`;
+    } catch (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.innerHTML = '<span>Pagar com Google Pay</span>';
+      alert('Não foi possível concluir a encomenda. Tenta novamente.');
+    }
   }, 2200);
 }
 

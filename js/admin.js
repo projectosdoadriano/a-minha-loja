@@ -4,28 +4,29 @@
 
 let editingId = null;
 
-document.addEventListener('DOMContentLoaded', () => {
-  DB.init();
-  renderStats();
-  renderProductsTable();
+document.addEventListener('DOMContentLoaded', async () => {
+  const session = await requireAdminSession();
+  if (!session) return;
+  await renderStats();
+  await renderProductsTable();
   bindAdminEvents();
 });
 
 // ── Stats ─────────────────────────────────────────────────────
-function renderStats() {
-  const products = DB.getProducts();
-  const orders = DB.getOrders();
-  const revenue = orders.reduce((s, o) => s + o.total, 0);
+async function renderStats() {
+  const products = await DB.getProducts({ includeInactive: true });
+  const orders = await DB.getOrders();
+  const revenue = orders.reduce((s, o) => s + Number(o.total), 0);
 
-  document.getElementById('statProducts').textContent = products.length;
+  document.getElementById('statProducts').textContent = products.filter(p => p.active).length;
   document.getElementById('statOrders').textContent = orders.length;
   document.getElementById('statRevenue').textContent = revenue.toFixed(2).replace('.', ',') + ' €';
   document.getElementById('statStock').textContent = products.reduce((s, p) => s + (p.stock || 0), 0);
 }
 
 // ── Table ─────────────────────────────────────────────────────
-function renderProductsTable() {
-  const products = DB.getProducts();
+async function renderProductsTable() {
+  const products = await DB.getProducts();
   const tbody = document.getElementById('productsTable');
 
   tbody.innerHTML = products.map(p => {
@@ -77,22 +78,16 @@ function bindAdminEvents() {
   document.getElementById('cancelBtn').addEventListener('click', closeModal);
   document.getElementById('productForm').addEventListener('submit', saveProduct);
 
-  document.getElementById('btnResetDB').addEventListener('click', () => {
-    if (confirm('Tens a certeza que queres repor os dados originais? Esta acção é irreversível.')) {
-      DB.resetToSeed();
-      renderStats();
-      renderProductsTable();
-    }
-  });
+  document.getElementById('btnResetDB').style.display = 'none';
 }
 
-function openEdit(id) {
+async function openEdit(id) {
   editingId = id;
   const modal = document.getElementById('productFormModal');
   const title = document.getElementById('modalTitle');
 
   if (id) {
-    const p = DB.getProduct(id);
+    const p = await DB.getProduct(id);
     if (!p) return;
     title.textContent = 'Editar Produto';
     document.getElementById('fName').value = p.name;
@@ -127,7 +122,7 @@ function closeModal() {
 }
 
 // ── Save ──────────────────────────────────────────────────────
-function saveProduct(e) {
+async function saveProduct(e) {
   e.preventDefault();
 
   const price = parseFloat(document.getElementById('fPrice').value);
@@ -162,20 +157,25 @@ function saveProduct(e) {
     featured: document.getElementById('fFeatured').checked
   };
 
-  DB.saveProduct(product);
-  closeModal();
-  renderStats();
-  renderProductsTable();
+  try {
+    await DB.saveProduct(product);
+    closeModal();
+    await renderStats();
+    await renderProductsTable();
+  } catch (err) {
+    console.error(err);
+    alert('Não foi possível guardar o produto.');
+  }
 }
 
 // ── Delete ────────────────────────────────────────────────────
-function deleteProduct(id) {
-  const p = DB.getProduct(id);
+async function deleteProduct(id) {
+  const p = await DB.getProduct(id);
   if (!p) return;
   if (!confirm(`Eliminar "${p.name}"? Esta acção não pode ser desfeita.`)) return;
-  DB.deleteProduct(id);
-  renderStats();
-  renderProductsTable();
+  await DB.deleteProduct(id);
+  await renderStats();
+  await renderProductsTable();
 }
 
 // ── Helpers ───────────────────────────────────────────────────
